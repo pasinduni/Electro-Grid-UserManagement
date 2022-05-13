@@ -1,6 +1,6 @@
 # ElectroGrid-UserManagement
 
-##  The technologies we used
+##  The technologies,
 -  java JAX-RS(jersy) Restful web service  
 -  Apache  Tomcat  
 -  mysql as the database 
