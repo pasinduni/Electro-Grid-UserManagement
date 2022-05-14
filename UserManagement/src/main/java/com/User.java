@@ -77,11 +77,11 @@ public class User {
 					 // Prepare the html table to be displayed
 					 output = "<table border='1'>"
 					 		+ "<tr>"
-					 		+ "<th>User Name</th>"
-					 		+ "<th>User Type</th>"
-					 		+ "<th>User Email</th>"
-					 		+ "<th>User Phone</th>"
-					 		+ "<th>User Password</th>"
+					 		+ "<th>UserName</th>"
+					 		+ "<th>UserType</th>"
+					 		+ "<th>UserEmail</th>"
+					 		+ "<th>UserPhone</th>"
+					 		+ "<th>UserPassword</th>"
 					 		+ "<th>Update</th>"
 					 		+ "<th>Remove</th></tr>";
 					 
@@ -100,7 +100,7 @@ public class User {
 						 String password = rs.getString("userPassword");
 						 
 						 	// Add a row into the html table
-						 	output += "<tr><td><input id='hiduserIdUpdate' name='hiduserIdUpdate' type='hidden' value='" + id + "'>" + name + "</td>";
+						 	output += "<tr><td><input id='hidUserIdUpdate' name='hidUserIdUpdate' type='hidden' value='" + id + "'>" + name + "</td>";
 //							output += "<td>" + name + "</td>";
 							output += "<td>" + type + "</td>";
 							output += "<td>" + email + "</td>";

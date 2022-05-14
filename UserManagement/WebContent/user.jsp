@@ -2,44 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<%
-//Save---------------------------------
-if (request.getParameter("userName") != null)
-{
-    User userObj = new User();
-    String stsMsg = "";
-
-    //Insert-----------------------------------
-    if (request.getParameter("hidUserIdSave") == "")
-    {		    
-    	stsMsg = userObj.insertUser(request.getParameter("userName"),
-	    request.getParameter("userType"),
-	    request.getParameter("userEmail"),
-	    request.getParameter("userPhone"),
-	    request.getParameter("userPassword"));
-   	}
-    else//Update--------------------------------
-	{
-	    stsMsg = userObj.updateUser(request.getParameter("hidUserIdSave"),
-	    request.getParameter("userName"),
-	    request.getParameter("userType"),
-	    request.getParameter("userEmail"),
-	    request.getParameter("userPhone"),
-	    request.getParameter("userPassword"));
-    }
-	    session.setAttribute("statusMsg", stsMsg);
-	}
-   
-   //Delete-----------------------------
-   if (request.getParameter("hidUserIdDelete") != null)
-   {
-	    User userObj = new User();
-	    String stsMsg = userObj.deleteUser(request.getParameter("hidUserIdDelete"));
-	    session.setAttribute("statusMsg", stsMsg);
-   }
-   
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,51 +10,79 @@ if (request.getParameter("userName") != null)
 	<script src="Components/jquery-3.2.1.min.js"></script>
 	<script src="Components/user.js" type="text/javascript"></script>
 	<title>User Management</title>
+	
+	<nav class="navbar navbar-expand-md navbar-dark" style="background-color: 	#1d3666">
+         <ul class="navbar-nav">
+              <li><a href="user.jsp" class="nav-link" style="color:#ffffff", "font-size:20px;", "size: 50px;" >ElectroGrid Online Billing</a></li>
+         </ul>
+    </nav>
+	
 </head>
 
 <body>
+	
+		<h2 class="m-4"><center>User Management</center></h2>
+			<hr width="90%">	
+			
 	<div class="container">
-		<h2 class="m-4">User Details(V1.0)</h2>
-			<hr>	
-				<form class="form-horizontal" action="" id="formUser" name="formUser" >
+		<div class="row">
+			<div class="col"><br>
+			<div class="card" style="width:100%; padding-right:14px">
+			<h4 style="margin:20px">Add New User<hr width="50%", align="left"></h4>
+			
+				<form class="" action="" id="formUser" name="formUser" >
 					
 					<div class="form-inline"> 
-						<label class="control-label col-sm-3" for="name">User Name: </label>	 
-						<input id="userName" name="userName" type="text" class="form-control form-control-sm">
+						<label class="control-label col" for="name">User Name: </label>	 
+						<input id="userName" name="userName" type="text" class="form-control form-control-sm" style="width:60%">
 					</div><br>
 					<div class="form-inline"> 
-						<label class="control-label col-sm-3" for="type">User Type: </label>
-						<input id="userType" name="userType" type="text" class="form-control form-control-sm">
+						<label class="control-label col" for="type">User Type: </label>
+						<input id="userType" name="userType" type="text" class="form-control form-control-sm" style="width:60%">
 					</div><br>
 					<div class="form-inline"> 
-						<label class="control-label col-sm-3" for="type">User Email: </label>
-						<input id="userEmail" name="userEmail" type="text" class="form-control form-control-sm">
+						<label class="control-label col" for="type">User Email: </label>
+						<input id="userEmail" name="userEmail" type="text" class="form-control form-control-sm" style="width:60%">
 					</div><br>
 					<div class="form-inline"> 
-						<label class="control-label col-sm-3" for="type">User Phone:</label>
-						<input id="userPhone" name="userPhone" type="text" class="form-control form-control-sm">
+						<label class="control-label col" for="type">User Phone:</label>
+						<input id="userPhone" name="userPhone" type="text" class="form-control form-control-sm" style="width:60%">
 					</div><br>
 					<div class="form-inline"> 
-						<label class="control-label col-sm-3" for="type">User Password:</label>
-						<input id="userPassword" name="userPassword" type="text" class="form-control form-control-sm">
+						<label class="control-label col" for="type">User Password:</label>
+						<input id="userPassword" name="userPassword" type="text" class="form-control form-control-sm" style="width:60%">
 					</div><br>
-						
-					<input id="btnSave" name="btnSave" type="button" value="Save"  class="btn btn-primary" >
-					<input type="hidden" id="hidUserIdSave" name="hidUserIdSave" value="">
+					
+					<div align="right">	
+					<input id="btnSave" name="btnSave" type="button" value="Save" class="btn btn-primary" style="margin-bottom:10px; width:20%;font-size:20px;font-weight:400">
+					<input type="hidden" id="hidUserIdSave" name="hidUserIdSave" value=""></div>
 					
 				</form>
-				<br>		
-						<div id="alertSuccess" class="alert alert-success"></div>
-						<div id="alertError" class="alert alert-danger"></div>
-		<br>
-		<div id="divUserGrid">
-			<%
-				User userObj = new User();
-			 	out.print(userObj.readUser()); 
-			%>
-		</div>
-	</div>
+				</div>
+				</div>
+		
+								
+		 					<div class="col">
+								<br>
+								<h4 class="m-3">User Details</h4>
+								<div id="divUserGrid">
+									<%
+										User userObj = new User();
+									 	out.print(userObj.readUser()); 
+									%>
+									
+							
+								</div>
+							</div>
+			</div>
+				</div>
+	
 </body>
+
+
+      
+   
+
 
 </html>
 

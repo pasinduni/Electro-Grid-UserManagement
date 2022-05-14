@@ -45,7 +45,8 @@ $(document).on("click", "#btnSave", function(event)
 //UPDATE ========================================
 $(document).on("click", ".btnUpdate", function(event)
 {
-	$("#hidUserIdSave").val($(this).closest("tr").find('#hidUserIdUpdate').val());
+	//$("#hidUserIdSave").val($(this).closest("tr").find('#hidUserIdUpdate').val());
+	$("#hidUserIdSave").val($(this).data("userId"));
 	$("#userName").val($(this).closest("tr").find('td:eq(0)').text());
 	$("#userType").val($(this).closest("tr").find('td:eq(1)').text());
 	$("#userEmail").val($(this).closest("tr").find('td:eq(2)').text());
@@ -60,7 +61,7 @@ $(document).on("click", ".btnRemove", function(event)
 	 {
 		 url : "UserAPI",
 		 type : "DELETE",
-		 data : "userId=" + $(this).data("userId"),
+		 data : "userID=" + $(this).data("userId"),
 		 dataType : "text",
 		 complete : function(response, status)
 		 {
@@ -70,37 +71,6 @@ $(document).on("click", ".btnRemove", function(event)
 });
 
 //CLIENT-MODEL=================================================================
-function validateUserForm() 
-{ 
-	//NAME
-	if ($("#userName").val().trim() == "") 
-	{ 
-		return "Insert User Name."; 
-	} 
-	//TYPE
-	if ($("#userType").val().trim() == "")
-	{
-		return "Insert User Type.";
-	}
-	//EMAIL
-	if ($("#userEmail").val().trim() == "") 
-	{
-		return "Insert User Email.";
-	}
-	//PHONE
-	if ($("#userPhone").val().trim() == "") 
-	{
-		return "Insert User Phone.";
-	}
-	//PASSWORD
-	if ($("#userPassword").val().trim() == "") 
-	{
-		return "Insert User Password.";
-	} 
-	return true; 
-} 
-
-
 function onUserSaveComplete(response, status)
 {
 	if (status == "success")
@@ -110,8 +80,8 @@ function onUserSaveComplete(response, status)
 			{
 				$("#alertSuccess").text("Successfully saved.");
 				$("#alertSuccess").show();
-				
 				$("#divUserGrid").html(resultSet.data);
+				
 			} else if (resultSet.status.trim() == "error")
 			{
 				$("#alertError").text(resultSet.data);
@@ -155,7 +125,45 @@ function onUserDeleteComplete(response, status)
 		 $("#alertError").text("Unknown error while deleting..");
 		 $("#alertError").show();
 	 }
+	 
 }
+
+function validateUserForm() 
+{ 
+	//NAME
+	if ($("#userName").val().trim() == "") 
+	{ 
+		return "Insert User Name."; 
+	} 
+	//TYPE
+	if ($("#userType").val().trim() == "")
+	{
+		return "Insert User Type.";
+	}
+	//EMAIL
+	if ($("#userEmail").val().trim() == "") 
+	{
+		return "Insert User Email.";
+	}
+	//PHONE
+	if ($("#userPhone").val().trim() == "") 
+	{
+		return "Insert User Phone.";
+	}
+	//PASSWORD
+	if ($("#userPassword").val().trim() == "") 
+	{
+		return "Insert User Password.";
+	} 
+	
+	
+	
+	return true; 
+	
+}
+
+
+
 
 
 
