@@ -28,4 +28,6 @@ Wijewickrama G.R.P.S - IT20168018
 
 # Screenshot of the UI
 
-![](UI/ui.jpeg)
+![](UI/UI1.jpeg)
+
+![](UI/UI2.jpeg)
