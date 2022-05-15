@@ -77,7 +77,7 @@ public class UserAPI extends HttpServlet {
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		 Map paras = getParasMap(request);
-		 String output = userObj.deleteUser(paras.get("userId").toString());
+		 String output = userObj.deleteUser(paras.get("id").toString());
 		 response.getWriter().write(output); 
 	}
 

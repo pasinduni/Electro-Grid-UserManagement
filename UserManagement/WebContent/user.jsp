@@ -1,34 +1,35 @@
 <%@ page import="com.User" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+        
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<link rel="stylesheet" href="Views/bootstrap.min.css">
 	<script src="Components/jquery-3.2.1.min.js"></script>
-	<script src="Components/user.js" type="text/javascript"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="Views/bootstrap.min.css">
+	<script src="Components/user.js"></script>
 	<title>User Management</title>
 	
-	<nav class="navbar navbar-expand-md navbar-dark" style="background-color: 	#1d3666">
+	<nav class="navbar navbar-expand-md navbar-dark" style="background-color:#27278c">
          <ul class="navbar-nav">
-              <li><a href="user.jsp" class="nav-link" style="color:#ffffff", "font-size:20px;", "size: 50px;" >ElectroGrid Online Billing</a></li>
+              <li><a href="user.jsp" class="nav-link" style="color:#ffffff", "font-size:20px;", "size: 50px;" >ElectroGrid Online Billing System</a></li>
          </ul>
     </nav>
-	
 </head>
 
 <body>
 	
 		<h2 class="m-4"><center>User Management</center></h2>
-			<hr width="90%">	
+		<hr width="90%">	
 			
 	<div class="container">
 		<div class="row">
 			<div class="col"><br>
-			<div class="card" style="width:100%; padding-right:14px">
-			<h4 style="margin:20px">Add New User<hr width="50%", align="left"></h4>
+				<div class="card" style="width:100%; padding-right:14px">
+				<h4 style="margin:20px">Add New User<hr width="50%", align="left"></h4>
 			
 				<form class="" action="" id="formUser" name="formUser" >
 					
@@ -58,30 +59,25 @@
 					<input type="hidden" id="hidUserIdSave" name="hidUserIdSave" value=""></div>
 					
 				</form>
-				</div>
-				</div>
-		
-								
-		 					<div class="col">
-								<br>
-								<h4 class="m-3">User Details</h4>
-								<div id="divUserGrid">
-									<%
-										User userObj = new User();
-									 	out.print(userObj.readUser()); 
-									%>
-									
-							
-								</div>
-							</div>
 			</div>
-				</div>
-	
+			<br>
+					<div id="alertSuccess" class="alert alert-success"></div>
+					<div id="alertError" class="alert alert-danger"></div>
+		</div>
+				
+		 	<div class="col">
+			<br>
+				<h4 class="m-3">User Details</h4>
+					<div id="divUserGrid">
+						<%
+							User userObj = new User();
+							out.print(userObj.readUser()); 
+						%>
+					</div>
+			</div>
+		</div>
+	</div>
 </body>
-
-
-      
-   
 
 
 </html>

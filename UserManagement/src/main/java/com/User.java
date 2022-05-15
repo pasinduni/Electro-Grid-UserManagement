@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class User {
-	//Connect to the Database
+		//Connect to the Database
 		public Connection connect() 
 		{
 			 Connection con = null;
@@ -15,7 +15,7 @@ public class User {
 					 Class.forName("com.mysql.jdbc.Driver");
 					 Class.forName("com.mysql.cj.jdbc.Driver");
 					 
-					//Provide the correct details: DBServer/DBName, username, password 
+					 //Provide the correct details: DBServer/DBName, username, password 
 					 con= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/electrogrid",
 					 "root", "");
 					 //For testing
@@ -53,8 +53,8 @@ public class User {
 					con.close();
 					
 					String newUser = readUser();
-					output = "{\"status\":\"success\", \"data\": \"" +
-							 newUser + "\"}"; 
+					output = "{\"status\":\"success\", \"data\": \"" + 
+								newUser + "\"}"; 
 					
 			} catch (Exception e) {
 				output = "{\"status\":\"error\", \"data\":\"Error while inserting the user.\"}";
@@ -100,17 +100,15 @@ public class User {
 						 String password = rs.getString("userPassword");
 						 
 						 	// Add a row into the html table
-						 	output += "<tr><td><input id='hidUserIdUpdate' name='hidUserIdUpdate' type='hidden' value='" + id + "'>" + name + "</td>";
-//							output += "<td>" + name + "</td>";
+						 	output += "<tr><td><input id='hidUserIdUpdate' name='hidUserIdUpdate' type='hidden' value='" + id + "'>" 
+						 					+ name + "</td>";
 							output += "<td>" + type + "</td>";
 							output += "<td>" + email + "</td>";
 							output += "<td>" + phone + "</td>";
 							output += "<td>" + password + "</td>";
 							 
 							 // buttons
-							 output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'>"
-							 		+ "</td><td><input name='btnRemove' type='button' value='Remove' "
-							 		+ "class='btnRemove btn btn-danger' data-userId='" + id +"'></td></tr>";
+							 output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary' data-userId='" + id + "'></td>"+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-userId='" + id +"'>" + "</td></tr>";
 					}
 							 con.close();
 							 
@@ -136,7 +134,7 @@ public class User {
 						 return "Error while connecting to the database for updating."; 
 					 }
 					 // create a prepared statement
-					 String query = "UPDATE user SET userName=?,userType=?,userEmail=?,userPhone=?,userPassword=?" + "WHERE userId=?";
+					 String query = "UPDATE user SET userName=?,userType=?,userEmail=?,userPhone=?,userPassword=? WHERE userId=?";
 					 PreparedStatement preparedStmt = con.prepareStatement(query);
 					 
 					 preparedStmt.setString(1, name);
@@ -151,8 +149,8 @@ public class User {
 					 con.close();
 					 
 					 String newUser = readUser();
-					 output = "{\"status\":\"success\", \"data\": \"" +
-								 newUser + "\"}"; 
+					 output = "{\"status\":\"success\", \"data\": \"" + 
+					 		 newUser + "\"}"; 
 					 
 				} catch (Exception e) {
 					output = "{\"status\":\"error\", \"data\":\"Error while updating the user.\"}";
@@ -167,11 +165,13 @@ public class User {
 		public String deleteUser(String userId) {
 			
 			String output = "";
+			
 			try {
 				Connection con = connect();
+				
 				if (con == null) {
 					return "Error while connecting to the database for deleting.";
-					}
+				}
 				
 				String query = "delete from user where userId=?";
 				PreparedStatement preparedStmt = con.prepareStatement(query);

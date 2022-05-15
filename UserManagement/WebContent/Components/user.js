@@ -1,6 +1,6 @@
 $(document).ready(function() 
 { 
-	if ($("#alertSuccess").text().trim() == "")
+	($("#alertSuccess").text().trim() == "")
 	{
 		$("#alertSuccess").hide();
 	}
@@ -38,7 +38,7 @@ $(document).on("click", "#btnSave", function(event)
 		{
 		 	onUserSaveComplete(response.responseText, status);
 		}
-	});
+	});	
 });
 
 
@@ -61,7 +61,7 @@ $(document).on("click", ".btnRemove", function(event)
 	 {
 		 url : "UserAPI",
 		 type : "DELETE",
-		 data : "userID=" + $(this).data("userId"),
+		 data : "id=" + $(this).data("userId"),
 		 dataType : "text",
 		 complete : function(response, status)
 		 {
@@ -69,6 +69,7 @@ $(document).on("click", ".btnRemove", function(event)
 		 }
 	 });
 });
+
 
 //CLIENT-MODEL=================================================================
 function onUserSaveComplete(response, status)
@@ -99,6 +100,7 @@ function onUserSaveComplete(response, status)
 	 $("#hidUserIdSave").val("");
 	 $("#formUser")[0].reset();
 }
+
 
 function onUserDeleteComplete(response, status)
 {
