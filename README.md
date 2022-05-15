@@ -17,6 +17,8 @@ This project is based on an Electro Grid (EG) is the company who maintains the p
 
 #  Link To GadgetBadget_clientside Database
 
+https://github.com/pasinduni/ElectroGrid-ClientSide/blob/main/Database/user.sql
+
 
 #  Developer
 
