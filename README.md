@@ -1,5 +1,5 @@
 # ElectroGrid-ClientSide
-## User Management Service
+## User Management
 
 <br>
 
