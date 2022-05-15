@@ -28,6 +28,8 @@ Wijewickrama G.R.P.S - IT20168018
 
 # Screenshot of the UI
 
+View user details
 ![](UI/UI1.jpeg)
 
+Insert, Update, Delete user details
 ![](UI/UI2.jpeg)
