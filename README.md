@@ -12,8 +12,9 @@ This project is based on an Electro Grid (EG) is the company who maintains the p
 -  java JAX-RS(jersy) Restful web service  
 -  Apache Tomcat  
 -  Mysql as the database 
--  Eclipse IDE.
--  View: HTML,CSS,Bootstrap(optional).
+-  Eclipse IDE
+-  Client-components: JQuery, Ajax for DC
+-  View: HTML,CSS,Bootstrap(optional)
 
 #  Link To ElectroGrid-clientside Database
 
