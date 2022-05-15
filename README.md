@@ -15,7 +15,7 @@ This project is based on an Electro Grid (EG) is the company who maintains the p
 -  Eclipse IDE.
 -  View: HTML,CSS,Bootstrap(optional).
 
-#  Link To GadgetBadget_clientside Database
+#  Link To ElectroGrid-clientside Database
 
 https://github.com/pasinduni/ElectroGrid-ClientSide/blob/main/Database/user.sql
 
